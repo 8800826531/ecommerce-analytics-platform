@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "UserActivityEvent",
+  "namespace": "com.ecommerce.events",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "user_id", "type": "string"},
+    {"name": "session_id", "type": "string"},
+    {
+      "name": "event_type",
+      "type": {
+        "type": "enum",
+        "name": "EventType",
+        "symbols": ["product_view", "add_to_cart", "checkout", "payment", "search", "login", "review"]
+      }
+    },
+    {"name": "product_id", "type": ["null", "string"], "default": null},
+    {"name": "search_query", "type": ["null", "string"], "default": null},
+    {"name": "amount", "type": ["null", "double"], "default": null},
+    {"name": "device_type", "type": "string"},
+    {"name": "geo_country", "type": "string"},
+    {"name": "timestamp_ms", "type": "long"}
+  ]
+}
