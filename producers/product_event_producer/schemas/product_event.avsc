@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "ProductEvent",
+  "namespace": "com.ecommerce.events",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "product_id", "type": "string"},
+    {
+      "name": "event_type",
+      "type": {
+        "type": "enum",
+        "name": "ProductEventType",
+        "symbols": ["product_created", "product_updated", "price_changed", "stock_updated"]
+      }
+    },
+    {"name": "product_name", "type": "string"},
+    {"name": "category", "type": "string"},
+    {"name": "price", "type": "double"},
+    {"name": "previous_price", "type": ["null", "double"], "default": null},
+    {"name": "stock_quantity", "type": "int"},
+    {"name": "previous_stock_quantity", "type": ["null", "int"], "default": null},
+    {"name": "timestamp_ms", "type": "long"}
+  ]
+}
