@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "OrderEvent",
+  "namespace": "com.ecommerce.events",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "order_id", "type": "string"},
+    {"name": "user_id", "type": "string"},
+    {
+      "name": "event_type",
+      "type": {
+        "type": "enum",
+        "name": "OrderEventType",
+        "symbols": ["order_placed", "order_confirmed", "order_shipped", "order_delivered", "order_cancelled"]
+      }
+    },
+    {"name": "product_ids", "type": {"type": "array", "items": "string"}},
+    {"name": "total_amount", "type": "double"},
+    {"name": "currency", "type": "string"},
+    {"name": "shipping_country", "type": "string"},
+    {"name": "cancellation_reason", "type": ["null", "string"], "default": null},
+    {"name": "timestamp_ms", "type": "long"}
+  ]
+}
