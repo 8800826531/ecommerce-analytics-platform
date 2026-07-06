@@ -1,0 +1,31 @@
+services:
+
+  user-activity-producer:
+    build:
+      context: .
+      dockerfile: producers/user_activity_producer/Dockerfile
+    container_name: user-activity-producer
+    env_file: .env
+    environment:
+      EVENTS_PER_SECOND: "10"
+    restart: unless-stopped
+
+  product-event-producer:
+    build:
+      context: .
+      dockerfile: producers/product_event_producer/Dockerfile
+    container_name: product-event-producer
+    env_file: .env
+    environment:
+      EVENTS_PER_SECOND: "5"
+    restart: unless-stopped
+
+  order-event-producer:
+    build:
+      context: .
+      dockerfile: producers/order_event_producer/Dockerfile
+    container_name: order-event-producer
+    env_file: .env
+    environment:
+      EVENTS_PER_SECOND: "3"
+    restart: unless-stopped
