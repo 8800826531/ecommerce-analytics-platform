@@ -23,12 +23,13 @@ venv/
 .venv/
 env/
 
-# Terraform — contains sensitive state
-terraform/.terraform/
-terraform/*.tfstate
-terraform/*.tfstate.backup
-terraform/*.tfvars
-terraform/.terraform.lock.hcl
+# Terraform — contains sensitive state and credentials
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.backup
+**/*.tfvars
+!**/*.tfvars.example
+**/.terraform.lock.hcl
 
 # Databricks
 .databricks/
